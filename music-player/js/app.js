@@ -24,7 +24,6 @@ playBtn.addEventListener('click', () => {
 })
 
 // setup music
-
 const setMusic = (i) => {
    seekBar.value = 0;
    let song = songs[i];
@@ -45,7 +44,6 @@ const setMusic = (i) => {
 setMusic(0);
 
 // formatting time 
-
 const formatTime = (time) => {
    let min = Math.floor(time / 60);
    if (min < 10){
@@ -67,4 +65,25 @@ setInterval(() => {
 
 seekBar.addEventListener('change', () => {
    music.currentTime = seekBar.value;
-})
+});
+
+// forward and backward button
+forwardBtn.addEventListener('click', () => {
+   if (currentMusic >= songs.length - 1){
+      currentMusic = 0;
+   } else {
+      currentMusic++;
+   }
+   setMusic(currentMusic);
+   playBtn.click();
+});
+
+backwardBtn.addEventListener('click', () => {
+   if (currentMusic <= 0){
+      currentMusic = songs.length - 1;
+   } else {
+      currentMusic--;
+   }
+   setMusic(currentMusic);
+   playBtn.click();
+});
