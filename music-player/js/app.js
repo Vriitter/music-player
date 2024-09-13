@@ -30,26 +30,26 @@ const setMusic = (i) => {
    artistName.innerHTML = song.artist;
    disk.style.backgroundImage = `url('${song.cover}')`;
 
-   // currentTime.innerHTML = '00:00';
-   // setTimeout(() => {
-   //    seekBar.max = music.duration;
-   //    musicDuration.innerHTML = formatTime(music.duration);
-   // }, 300);
+   currentTime.innerHTML = '00:00';
+   setTimeout(() => {
+      seekBar.max = music.duration;
+      musicDuration.innerHTML = formatTime(music.duration);
+   }, 300);
 }
 
 setMusic(0);
 
 // formatting time 
 
-// const formatTime = (time) => {
-//    let min = Math.floor(time / 60);
-//    if (min < 10){
-//       min = `0${min}`;
-//    }
-//    let sec = Math.floor(time % 60);
-//    if (sec < 10){
-//       sec = `0${sec}`;
-//    }
+const formatTime = (time) => {
+   let min = Math.floor(time / 60);
+   if (min < 10){
+      min = `0${min}`;
+   }
+   let sec = Math.floor(time % 60);
+   if (sec < 10){
+      sec = `0${sec}`;
+   }
 
-//    return `${min} : ${sec}`;
-// }
+   return `${min} : ${sec}`;
+}
