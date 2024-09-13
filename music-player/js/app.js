@@ -14,6 +14,11 @@ const backwardBtn = document.querySelector('.backward-btn');
 
 
 playBtn.addEventListener('click', () => {
+   if(playBtn.className.includes('pause')){
+      music.play();
+   } else {
+      music.pause();
+   }
    playBtn.classList.toggle('pause');
    disk.classList.toggle('play');
 })
