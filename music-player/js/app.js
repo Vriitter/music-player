@@ -1,7 +1,5 @@
 let currentMusic = 0;
-
 const music = document.querySelector('#audio');
-
 const seekBar = document.querySelector('.seek-bar');
 const songName = document.querySelector('.music-name');
 const artistName = document.querySelector('.artist-name');
@@ -11,7 +9,6 @@ const musicDuration = document.querySelector('.song-duration-time');
 const playBtn = document.querySelector('.play-btn');
 const forwardBtn = document.querySelector('.forward-btn');
 const backwardBtn = document.querySelector('.backward-btn');
-
 
 playBtn.addEventListener('click', () => {
    if(playBtn.className.includes('pause')){
@@ -23,7 +20,6 @@ playBtn.addEventListener('click', () => {
    disk.classList.toggle('play');
 })
 
-// setup music
 const setMusic = (i) => {
    seekBar.value = 0;
    let song = songs[i];
@@ -40,10 +36,8 @@ const setMusic = (i) => {
       musicDuration.innerHTML = formatTime(music.duration);
    }, 300);
 }
-
 setMusic(0);
 
-// formatting time 
 const formatTime = (time) => {
    let min = Math.floor(time / 60);
    if (min < 10){
@@ -53,11 +47,10 @@ const formatTime = (time) => {
    if (sec < 10){
       sec = `0${sec}`;
    }
-
    return `${min} : ${sec}`;
 }
 
-// seek bar
+
 setInterval(() => {
    seekBar.value = music.currentTime;
    currentTime.innerHTML = formatTime(music.currentTime);
@@ -76,7 +69,6 @@ const playMusic = () => {
    disk.classList.add('play');
 }
 
-// forward and backward button
 forwardBtn.addEventListener('click', () => {
    if (currentMusic >= songs.length - 1){
       currentMusic = 0;
