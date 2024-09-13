@@ -51,6 +51,12 @@ body {
    background-image: url(../images/cover\ 1.png);
    background-size: cover;
    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08);
+   animation: rotate 20s linear infinite;
+   animation-play-state: paused;
+}
+
+.disk.play {
+   animation-play-state: running;
 }
 
 .disk::before {
@@ -170,4 +176,13 @@ body {
    border: none;
    border-radius: 50%;
    background: #d5eebb;
+}
+
+@keyframes rotate {
+   0%{
+      transform: rotate(0);
+   }
+   100%{
+      transform: rotate(360deg);
+   }
 }
