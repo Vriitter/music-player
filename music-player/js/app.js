@@ -65,7 +65,13 @@ setInterval(() => {
 
 seekBar.addEventListener('change', () => {
    music.currentTime = seekBar.value;
-});
+})
+
+const playMusic = () => {
+   music.play();
+   playBtn.classList.remove('pause');
+   disk.classList.add('play');
+}
 
 // forward and backward button
 forwardBtn.addEventListener('click', () => {
@@ -75,8 +81,8 @@ forwardBtn.addEventListener('click', () => {
       currentMusic++;
    }
    setMusic(currentMusic);
-   playBtn.click();
-});
+   playMusic();
+})
 
 backwardBtn.addEventListener('click', () => {
    if (currentMusic <= 0){
@@ -85,5 +91,5 @@ backwardBtn.addEventListener('click', () => {
       currentMusic--;
    }
    setMusic(currentMusic);
-   playBtn.click();
-});
+   playMusic();
+})
